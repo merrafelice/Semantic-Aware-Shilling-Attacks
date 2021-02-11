@@ -1,0 +1,52 @@
+
+# Created by https://www.toptal.com/developers/gitignore/api/venv,data
+# Edit at https://www.toptal.com/developers/gitignore?templates=venv,data
+
+/idea
+.idea
+### Data ###
+/old_data/*
+/application/Plot*
+### venv ###
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+.Python
+#[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+/venv/*
+
+# End of https://www.toptal.com/developers/gitignore/api/venv,data
+/venv/
+
+/application/config.py
+
+/data_samples/
+/NCF/
+/SVD/
+/UserKNN/
+/ItemkNN/
+/swj_data.zip
+/data/
+/old_data/
+/post_attack_predictor.py
+/results_mean.pkl
+/SVD.zip
+/SWJ-HR-Results.xlsx
+/SWJ-PS-Results.xlsx
+/UserkNN.zip
+/Results.ods
+/NCF.zip
+/ItemkNN.zip
+/.~lock.Results.xlsx#
+/Table-Papers.ods
+/data_to_publish/
+/SWJ-HR-Results.xlsx
+/SWJ-PS-Results.xlsx
+/plot.py
