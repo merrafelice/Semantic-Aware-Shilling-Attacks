@@ -1,14 +1,14 @@
-# Towards Semantic-Aware Shilling Attacks against Collaborative Recommender Systems
-This file presents the reproducibility details of the paper. **Towards Semantic-Aware Shilling Attacks against Collaborative Recommender Systems** submitted at Semantic Web Journal 2021
+# Shilling Attacks against Collaborative Recommender Systems exploiting Knowledge-Graph Data
+This repo publish the code for the ESWC 2020 paper [SAShA: Semantic-Aware Shilling Attacks on Recommender Systems Exploiting
+               Knowledge Graphs](http://sisinflab.poliba.it/publications/2020/ADDDM20/2020_Anelli_ESWC2020.pdf).
 
 **Table of Contents:**
 - [Requirements](#requirements)
 - [Datasets](#datasets)
 - [Reproducibility Details](#reproducibility-details)
   - [1. Identify the Target Items](#1-identify-the-target-items)
-  - [2. Evaluate the Topological Similarities](#2-evaluate-the-topological-similarities)
-  - [3. Perform the Shilling Attacks](#3-perform-the-shilling-attacks)
-  - [4. Evaluation](#4-evaluation)
+  - [2. Perform the Shilling Attacks](#2-perform-the-shilling-attacks)
+  - [3. Evaluation](#3-evaluation)
 
 ## Requirements
 
@@ -73,22 +73,7 @@ python run_generate_target_items.py
 The script will generate the file ```./data/<dataset_name>/target_items.csv```.
 We have performed our experiments setting ```num_target_items = 50```.
 
-### 2. Evaluate the Topological Similarities
-To evaluate the relatedness measures to build the semantic-aware profiles it is necessary to run
-```
-python run_generate_target_items.py 
-	 --datasets	<data-name-1> <data-name-2> 
-	 --topk	10 
-	 --topn	100
-	 --top_k_similar_items	0.25
-	 --alpha	0.25
-	 --is_exclusivity	1
-	 --is_katz	1
-```
-The results will be stored in the directory ```./data/<dataset_name>/similarities/```.
-The cosine similarity evaluation is performed within the following command.
-
-### 3. Perform the Shilling Attacks
+### 2. Perform the Shilling Attacks
 After having executed the previous commands we can start the flow of attacking the recommender models by running the following command.
 ```
 python run_multiple_execution_server.py 
@@ -118,7 +103,7 @@ Note that we have provided an example of execution. It is possible to change the
 At the end of the execution all the crafted shilling profiles will be store in ```./<model-name>/shilling_profiles/<dataset_name>/``` while the positions and scores of the Target Items will be saved in
 ```./<model-name>/results/<dataset_name>/```.
 
-### 4. Evaluation
+### 3. Evaluation
 To measure all the results that we report in tha paper, we can execute the following command
 ```
 python run_process_attack_result.py 
@@ -132,3 +117,23 @@ python run_process_attack_result.py
 
 ```
 At the end of this command, the results files will be saved in ```./<model-name>/HR/<dataset_name>/``` and ```./<model-name>/PS/<dataset_name>/``` directories. Note that, the results are evaluated within a significance statistical test by adding asterisks at the end of each PS/HR values.
+
+# Citation
+
+```
+@inproceedings{DBLP:conf/esws/AnelliDNSM20,
+  author    = {Vito Walter Anelli and
+               Yashar Deldjoo and
+               Tommaso Di Noia and
+               Eugenio Di Sciascio and
+               Felice Antonio Merra},
+  title     = {SAShA: Semantic-Aware Shilling Attacks on Recommender Systems Exploiting
+               Knowledge Graphs},
+  booktitle = {{ESWC}},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {12123},
+  pages     = {307--323},
+  publisher = {Springer},
+  year      = {2020}
+}
+```
